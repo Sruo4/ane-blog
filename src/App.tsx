@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import HomePage from './pages/HomePage';
-import { Tab2Content } from './pages/Tab2Content';
+import AboutPage from './pages/AboutPage';
 import { Tab3Content } from './pages/Tab3Content';
 
 const tabContents = [
   { id: 'tab1', title: 'Home', path: '/', Component: HomePage },
-  { id: 'tab2', title: '标签 2', path: '/tab2', Component: Tab2Content },
+  { id: 'tab2', title: 'About', path: '/about', Component: AboutPage },
   { id: 'tab3', title: '标签 3', path: '/tab3', Component: Tab3Content },
 ];
 
