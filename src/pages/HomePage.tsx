@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Tab1Content: React.FC = () => {
+const HomePage: React.FC = () => {
   const getGreeting = () => {
     const hour = new Date().getHours();
     if (hour < 12) {
@@ -20,4 +20,4 @@ const Tab1Content: React.FC = () => {
   );
 };
 
-export default Tab1Content;
+export default HomePage;
