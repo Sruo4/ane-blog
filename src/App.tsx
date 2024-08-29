@@ -6,7 +6,7 @@ import { Tab2Content } from './pages/Tab2Content';
 import { Tab3Content } from './pages/Tab3Content';
 
 const tabContents = [
-  { id: 'tab1', title: '标签 1', path: '/', Component: Tab1Content },
+  { id: 'tab1', title: 'Home', path: '/', Component: Tab1Content },
   { id: 'tab2', title: '标签 2', path: '/tab2', Component: Tab2Content },
   { id: 'tab3', title: '标签 3', path: '/tab3', Component: Tab3Content },
 ];
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <Router>
-      <main className="flex min-h-screen">
+      <main className="flex min-h-screen bg-gray-100 ">
         <Sidebar tabs={tabContents} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
         <div className="flex-1 p-4">
           <Routes>
