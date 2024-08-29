@@ -1,7 +1,8 @@
-import { TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Link } from 'react-router-dom';
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface SidebarProps {
-  tabs: { id: string; title: string }[];
+  tabs: { id: string; title: string; path: string }[];
 }
 
 function Sidebar({ tabs }: SidebarProps) {
@@ -10,13 +11,17 @@ function Sidebar({ tabs }: SidebarProps) {
       <div className="">
         <h1 className="text-4xl font-bold p-4">Title_Ane</h1>
       </div>
-      <TabsList className="flex flex-col mt-10 space-y-2 p-2">
-        {tabs.map((tab) => (
-          <TabsTrigger key={tab.id} value={tab.id} className="w-full">
-            {tab.title}
-          </TabsTrigger>
-        ))}
-      </TabsList>
+      <Tabs>
+        <TabsList className="flex flex-col mt-10 space-y-2 p-2">
+          {tabs.map((tab) => (
+            <Link key={tab.id} to={tab.path} className="w-full">
+              <TabsTrigger value={tab.id} className="w-full" >
+                {tab.title}
+              </TabsTrigger>
+            </Link>
+          ))}
+        </TabsList>
+      </Tabs>
     </div>
   );
 }
