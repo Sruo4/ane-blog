@@ -1,4 +1,3 @@
-import React from 'react';
 import { Tabs, TabsContent } from "@/components/ui/tabs"
 import Sidebar from './components/Sidebar';
 import { Tab1Content } from './pages/Tab1Content';
