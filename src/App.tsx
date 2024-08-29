@@ -22,11 +22,20 @@ function App() {
     }
   }, [isDarkMode]);
 
+  useEffect(() => {
+    // 禁止页面整体滚动
+    document.body.style.overflow = 'hidden';
+    return () => {
+      // 组件卸载时恢复滚动
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   return (
     <Router>
       <main className="flex min-h-screen bg-gray-100 ">
         <Sidebar tabs={tabContents} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
-        <div className="flex-1 p-4">
+        <div className="flex-1 pr-4 pt-4 pb-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
             {tabContents.map(({ id, path, Component }) => (

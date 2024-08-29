@@ -25,9 +25,11 @@ function Sidebar({ tabs, isDarkMode, setIsDarkMode }: SidebarProps) {
           </TabsList>
         </Tabs>
       </div>
-      <Button onClick={() => setIsDarkMode(!isDarkMode)} className="m-4">
-        切换到{isDarkMode ? '亮色模式' : '暗色模式'}
-      </Button>
+      <div className="mb-10 ml-2 mr-2"> {/* 添加外边距 */}
+        <Button onClick={() => setIsDarkMode(!isDarkMode)} className="w-full">
+          切换到{isDarkMode ? '亮色模式' : '暗色模式'}
+        </Button>
+      </div>
     </div>
   );
 }
