@@ -13,7 +13,7 @@ function Sidebar({ tabs, isDarkMode, setIsDarkMode }: SidebarProps) {
     <div className="w-64 min-h-screen bg-gray-100 flex flex-col justify-between">
       <div>
         <h1 className="text-4xl font-bold p-4">Title_Ane</h1>
-        <Tabs>
+        <Tabs defaultValue="tab1">
           <TabsList className="flex flex-col mt-10 space-y-2 p-2">
             {tabs.map((tab) => (
               <Link key={tab.id} to={tab.path} className="w-full">
