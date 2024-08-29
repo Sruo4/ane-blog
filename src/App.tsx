@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import { Tab3Content } from './pages/Tab3Content';
+import BlogPage  from './pages/BlogPage';
 
 const tabContents = [
   { id: 'tab1', title: 'Home', path: '/', Component: HomePage },
   { id: 'tab2', title: 'About', path: '/about', Component: AboutPage },
-  { id: 'tab3', title: '标签 3', path: '/tab3', Component: Tab3Content },
+  { id: 'tab3', title: 'Blog', path: '/blog', Component: BlogPage },
 ];
 
 function App() {
