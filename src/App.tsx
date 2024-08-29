@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import { Tab1Content } from './pages/Tab1Content';
@@ -11,10 +12,20 @@ const tabContents = [
 ];
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   return (
     <Router>
       <main className="flex min-h-screen">
-        <Sidebar tabs={tabContents} />
+        <Sidebar tabs={tabContents} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
         <div className="flex-1 p-4">
           <Routes>
             <Route path="/" element={<Tab1Content />} />
