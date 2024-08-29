@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import BlogPage  from './pages/BlogPage';
+
+const tabContents = [
+  { id: 'tab1', title: 'Home', path: '/', Component: HomePage },
+  { id: 'tab2', title: 'About', path: '/about', Component: AboutPage },
+  { id: 'tab3', title: 'Blog', path: '/blog', Component: BlogPage },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    // 禁止页面整体滚动
+    document.body.style.overflow = 'hidden';
+    return () => {
+      // 组件卸载时恢复滚动
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <main className="flex min-h-screen bg-gray-100 ">
+        <Sidebar tabs={tabContents} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
+        <div className="flex-1 pr-4 pt-4 pb-4">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            {tabContents.map(({ id, path, Component }) => (
+              <Route key={id} path={path} element={<Component />} />
+            ))}
+          </Routes>
+        </div>
+      </main>
+    </Router>
+  );
 }
 
-export default App
+export default App;
