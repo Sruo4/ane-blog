@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white rounded-lg p-11">
+    <div className="h-full bg-white rounded-lg p-11">
       <div className="text-6xl mb-4">{getGreeting()}</div>
       <div className="text-xl text-gray-500">Hi! I'm Ane</div>
     </div>
