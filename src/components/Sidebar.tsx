@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import Logo from "@/assets/mainLogo.svg";
 
 interface SidebarProps {
   tabs: { id: string; title: string; path: string }[];
@@ -13,9 +14,11 @@ function Sidebar({ tabs, isDarkMode, setIsDarkMode }: SidebarProps) {
   const [selectedTabId, setSelectedTabId] = useState<string>(tabs[0]?.id || "");
 
   return (
-    <div className="w-64 min-h-screen p-2">
+    <div className="w-[15.5rem] min-h-screen p-2 ">
       <div className="w-full h-full flex flex-col">
-        <h1 className="text-4xl font-bold m-0">Ane</h1>
+        <div className="w-32 h-15">
+          <img src={Logo} alt="Logo" className="w-full h-full" />
+        </div>
 
         <Tabs defaultValue={selectedTabId} className="m-0">
           <TabsList className="flex flex-col space-y-2 h-full">

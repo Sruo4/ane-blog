@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Router>
-      <main className="flex min-h-screen bg-gray-100 ">
+      <main className="flex min-h-screen bg-[#F6F4F4] ">
         <Sidebar tabs={tabContents} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
         <div className="flex-1 pr-2 pt-2 pb-2 h-screen box-border" style={{ boxShadow: '#00000009 0px 1px 6px 0px' }}>
           <Routes>
